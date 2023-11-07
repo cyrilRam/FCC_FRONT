@@ -29,13 +29,13 @@ const App = () => {
     try {
       // Effectuez la requête POST
       const response = await axios.post(
-          "http://localhost:8000/api/formations",
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
+        "http://localhost:8000/api/formations",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       setfile(null); //une fois le post realisé on supprime
 
@@ -45,23 +45,23 @@ const App = () => {
       console.error("Erreur lors de l'envoi du fichier :", error);
       const errorDetails = error.response.data.detail;
       console.log(errorDetails);
-      alert("Erreur : Alimentation BDD");
+      alert("Erreur : " + errorDetails);
     }
   };
 
   return (
-      <div>
-        <div {...getRootProps()} style={dropzoneStyles}>
-          <input {...getInputProps()} />
-          <p>
-            Glissez et déposez un fichier Excel (.xlsx) ici, ou cliquez pour
-            sélectionner un fichier.
-          </p>
-          <p>{file && file.name}</p>
-        </div>
-
-        <button onClick={handleUpload}>Envoyer le fichier</button>
+    <div>
+      <div {...getRootProps()} style={dropzoneStyles}>
+        <input {...getInputProps()} />
+        <p>
+          Glissez et déposez un fichier Excel (.xlsx) ici, ou cliquez pour
+          sélectionner un fichier.
+        </p>
+        <p>{file && file.name}</p>
       </div>
+
+      <button onClick={handleUpload}>Envoyer le fichier</button>
+    </div>
   );
 };
 
