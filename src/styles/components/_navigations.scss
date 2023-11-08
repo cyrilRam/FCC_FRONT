@@ -1,0 +1,35 @@
+.navigation {
+  font-family: Arial;
+  position: relative;
+  margin-bottom: 30px;
+  background: cadetblue;
+  width: 100%;
+
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 20px;
+
+    a {
+      text-decoration: none;
+      padding: 10px;
+
+      li {
+        color: white;
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          color: cornflowerblue;
+        }
+      }
+    }
+
+    .nav-active {
+      position: relative;
+      background-color: rgb(84, 11, 228);
+      border-radius: 10px;
+    }
+  }
+}
