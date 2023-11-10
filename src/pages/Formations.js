@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Upload from "../components/Upload";
+import Table from "../components/Table";
 
 const Formations = () => {
     return (
@@ -10,6 +11,7 @@ const Formations = () => {
             <div className="formation-container">
                 <h1>Table Formations</h1>
             </div>
+            <Table/>
 
         </div>
     );
