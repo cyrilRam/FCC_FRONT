@@ -5,23 +5,30 @@ import axios from "axios";
 const Upload = () => {
     const [file, setfile] = useState(null);
     const onDrop = (acceptedFiles) => {
-        // On récupère le premier fichier
         setfile(acceptedFiles[0]);
     };
     const {getRootProps, getInputProps} = useDropzone({
         onDrop,
-        accept: ".xlsx", // Autoriser uniquement les fichiers Excel
-        multiple: true, // Autoriser uniquement un seul fichier
+        accept: ".xlsx",
+        multiple: false,
     });
 
     const handleUpload = async () => {
+
         if (!file) {
             alert("Veuillez sélectionner un fichier Excel.");
             return;
+        } else {
+            const fileName = file.name.toLowerCase();
+            if (!fileName.endsWith(".xlsx")) {
+                alert("Le fichier doit être au format Excel (.xlsx).");
+                setfile(null);
+                return;
+            }
         }
 
         const formData = new FormData();
-        formData.append(`file`, file);
+        formData.append(`file`, file); //dans la fonction du back on a juste file
         console.log(file);
         console.log(formData);
 
@@ -65,7 +72,7 @@ const Upload = () => {
                 <button onClick={handleUpload}>Envoyer le fichier</button>
             </div>
         </div>
-        
+
     );
 };
 
