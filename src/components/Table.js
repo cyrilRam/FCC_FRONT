@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
-const Table = () => {
+const Table = ({table}) => {
     const [data, setData] = useState([]);
     const [dataLoad, setDataLoad] = useState(false);
     const [modifyData, setModifyData] = useState(false)
 
     const getData = () => {
         axios.get(
-            `http://localhost:8000/api/getStaticTable/formation`
+            `http://localhost:8000/api/getStaticTable/${table}`
         )
             .then((res) => {
                 setData(JSON.parse(res.data));
@@ -23,7 +23,7 @@ const Table = () => {
             try {
                 // Effectuez la requête POST
                 const response = await axios.post(
-                    `http://localhost:8000/api/formations/updateTable`,
+                    `http://localhost:8000/api/updateTable`,
                     data,
                     {
                         headers: {
@@ -34,6 +34,7 @@ const Table = () => {
 
                 // Gérez la réponse de l'API ici
                 alert("Réponse de l'API :" + response.data);
+                getData()
             } catch (error) {
                 console.error("Erreur lors de l'envoi du fichier :", error);
                 const errorDetails = error.response.data.detail;
@@ -73,7 +74,8 @@ const Table = () => {
     const handleAdd = () => {
         const newDataRow = {}; // Create an empty object for the new row
         columns.forEach(column => {
-            newDataRow[column] = ""; // You can set a default value here if needed
+            column == 'id' ? newDataRow[column] = null : newDataRow[column] = "";
+            //newDataRow[column] = ""; // You can set a default value here if needed
         });
 
         // Add the new row to the state
@@ -87,6 +89,7 @@ const Table = () => {
     const columns = data[0] ? Object.keys(data[0]) : [];
     return (
         <div>
+            <h1>Table {table}</h1>
             <button onClick={postNewData}>Save</button>
             <button onClick={handleAdd}>Add Row</button>
             {columns.length > 0 && (

@@ -1,16 +1,21 @@
 import React from "react";
-import Formations from "./pages/Formations";
-import Students from "./pages/Student";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import UploadFile from "./pages/UploadFile";
+import Calcul from "./pages/Calcul";
+import Student from "./pages/staticTables/Student";
+import Formations from "./pages/staticTables/Formations";
 
 const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Formations />}></Route>
-                <Route path="/students" element={<Students />}></Route>
+                <Route path="/" element={<UploadFile/>}></Route>
+                <Route path="/calcul" element={<Calcul/>}></Route>
+                <Route path="/modifyStaticTable/student" element={<Student/>}></Route>
+                <Route path="/modifyStaticTable/formation" element={<Formations/>}></Route>
+
                 {/*Si path est faux alors on renvoie a home*/}
-                <Route path="*" element={<Formations />}></Route>
+                <Route path="*" element={<UploadFile/>}></Route>
             </Routes>
         </BrowserRouter>
     );

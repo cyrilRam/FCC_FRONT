@@ -1,13 +1,12 @@
 import React from 'react';
 import Navigation from "../components/Navigation";
 
-const Student = () => {
+const Calcul = () => {
     return (
-        <div className="student">
+        <div>
             <Navigation/>
-            <h1>Table Eleves</h1>
         </div>
     );
 };
 
-export default Student;
+export default Calcul;

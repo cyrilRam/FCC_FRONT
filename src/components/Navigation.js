@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Navigation = () => {
     return (
@@ -10,13 +10,19 @@ const Navigation = () => {
                         to="/"
                         className={(nav) => (nav.isActive ? "nav-active" : "")}
                     >
-                        <li>Formations</li>
+                        <li>Upload Files</li>
                     </NavLink>
                     <NavLink
-                        to="/students"
+                        to="/calcul"
                         className={(nav) => (nav.isActive ? "nav-active" : "")}
                     >
-                        <li>Students</li>
+                        <li>Calcul</li>
+                    </NavLink>
+                    <NavLink
+                        to="/modifyStaticTable/student"
+                        className={(nav) => (nav.isActive ? "nav-active" : "")}
+                    >
+                        <li>Modify Static Table</li>
                     </NavLink>
                 </ul>
             </div>
