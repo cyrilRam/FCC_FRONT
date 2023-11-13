@@ -8,7 +8,7 @@ const Table = () => {
 
     const getData = () => {
         axios.get(
-            `http://localhost:8000/api/formations`
+            `http://localhost:8000/api/getStaticTable/formation`
         )
             .then((res) => {
                 setData(JSON.parse(res.data));
