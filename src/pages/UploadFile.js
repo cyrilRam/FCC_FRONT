@@ -6,7 +6,8 @@ const UploadFile = () => {
     return (
         <div>
             <Navigation/>
-            <Upload/>
+            <h1>MAJ des tables d'import</h1>
+            <Upload table={"results"}/>
         </div>
     );
 };

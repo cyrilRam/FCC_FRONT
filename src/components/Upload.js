@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useDropzone} from "react-dropzone";
 import axios from "axios";
 
-const Upload = () => {
+const Upload = ({table}) => {
     const [file, setfile] = useState(null);
     const onDrop = (acceptedFiles) => {
         setfile(acceptedFiles[0]);
@@ -35,7 +35,7 @@ const Upload = () => {
         try {
             // Effectuez la requête POST
             const response = await axios.post(
-                "http://localhost:8000/api/formations",
+                `http://localhost:8000/api/ImportsDataFromFile/${table}`,
                 formData,
                 {
                     headers: {
