@@ -40,9 +40,24 @@ const Calcul = () => {
         }
     }
 
-    const handleUplaodFile = () => {
-        console.log("chargement")
-    }
+    const generateExcel = () => {
+        axios({
+            url: `http://localhost:8000/api/uploadExcelMoyennes/${selectedDate}`,
+            method: 'GET',
+            responseType: 'blob',
+        })
+            .then(response => {
+                // Créer un lien pour télécharger le fichier Excel
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'resultats_etudiants.xlsx';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(error => console.error('Erreur lors de la récupération du fichier Excel :', error));
+    };
 
     return (
         <div>
@@ -60,7 +75,7 @@ const Calcul = () => {
                 <button onClick={handleCalcul}>Calcul</button>
             </div>
             <div className="uploadFile">
-                <button onClick={handleUplaodFile}> Charger Excel</button>
+                <button onClick={generateExcel}> Charger Excel</button>
             </div>
         </div>
     );
