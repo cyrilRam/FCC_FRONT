@@ -5,7 +5,7 @@ import NavStaticTable from "../../components/NavStaticTable";
 
 const Formations = () => {
     return (
-        <div className="formations">
+        <div className="stat-table">
             <Navigation/>
             <NavStaticTable/>
             <Table table={"formation"}/>

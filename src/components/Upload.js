@@ -58,18 +58,19 @@ const Upload = ({table}) => {
     return (
 
         <div className="drop-container">
-            <h1>Importation Fichier Excel</h1>
+            <h1>{table}</h1>
             <div className="dropzone">
                 <div {...getRootProps()} className="drop">
                     <input {...getInputProps()} />
-                    <p>
-                        Glissez et déposez un fichier Excel (.xlsx) ici, ou cliquez pour
-                        sélectionner un fichier.
-                    </p>
-                    <p>{file && file.name}</p>
+                    {!file && <img src="./assets/3616929.png"/>}
+                    {file && (<div className="excel">
+                            <img src="./assets/excel-logo-0.png"/>
+                            <p>{file.name}</p>
+                        </div>
+                    )}
                 </div>
 
-                <button onClick={handleUpload}>Envoyer le fichier</button>
+                <button onClick={handleUpload}>Upload</button>
             </div>
         </div>
 

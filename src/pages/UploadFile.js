@@ -4,10 +4,12 @@ import Upload from "../components/Upload";
 
 const UploadFile = () => {
     return (
-        <div>
+        <div className="uploadfile">
             <Navigation/>
-            <h1>MAJ des tables d'import</h1>
-            <Upload table={"results"}/>
+            <div className="upload-container">
+                <Upload table={"results"}/>
+                <Upload table={"Autres"}/>
+            </div>
         </div>
     );
 };

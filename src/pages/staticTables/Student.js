@@ -5,7 +5,7 @@ import Table from "../../components/Table";
 
 const Student = () => {
     return (
-        <div className="student">
+        <div className="stat-table">
             <Navigation/>
             <NavStaticTable/>
             <Table table={"student"}/>

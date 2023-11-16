@@ -5,19 +5,22 @@
   justify-content: space-between; /* Pour espacer les éléments horizontalement */
   flex-direction: column;
   margin: 10px;
-  border: 3px dotted grey;
-  width: 700px;
-  border-radius: 10px;
+  padding: 30px;
+  border: 3px solid $color-grey-two;
+
+  border-radius: 20px;
 
 
   h1 {
     text-align: center; /* Centre le texte horizontalement */
+    padding: 20px;
     margin: 10px;
+    margin-bottom: 20px;
+    background-color: $color-grey-one;
+    border-radius: 10px;
   }
 
   .dropzone {
-
-    width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,14 +28,45 @@
     margin: 10px;
 
     .drop {
-      border: 2px dashed #cccccc;
-      width: 400px;
+      border: 4px dashed #cccccc;
+      padding: 10px;
       background: azure;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      width: 300px;
+      margin-bottom: 30px;
+
+      p {
+        font-style: italic;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
     }
 
     button {
       margin: 10px;
       border-radius: 5px;
+      width: 100px;
+      height: 50px;
+      font-size: 1.3rem;
+      background-color: $color-bluegrey;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        font-weight: bold;
+        font-size: 1.305rem;
+        color: whitesmoke;
+        background-color: $color-bluegrey-onclick;
+        transition: color 0, 3s ease;
+
+      }
+
     }
   }
 }
