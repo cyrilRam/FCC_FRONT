@@ -13,19 +13,35 @@ const Upload = ({table}) => {
         multiple: false,
     });
 
+    const checkUploadFilePossible = () => {
+        const fileName = file.name.toLowerCase();
+        if (table === "results") {
+            const regex = /^results_data_\d{2}_\d{2}\.xlsx$/;
+            return regex.test(fileName)
+        } else {
+            const regex = /^results_data_\d{2}_\d{2}\.xlsx$/;
+            return regex.test(fileName)
+        }
+
+
+        // if (!fileName.endsWith(".xlsx")) {
+        //     alert("Le fichier doit être au format Excel (.xlsx).");
+        //     setfile(null);
+        //     return;
+        // }
+    }
     const handleUpload = async () => {
 
         if (!file) {
             alert("Veuillez sélectionner un fichier Excel.");
             return;
-        } else {
-            const fileName = file.name.toLowerCase();
-            if (!fileName.endsWith(".xlsx")) {
-                alert("Le fichier doit être au format Excel (.xlsx).");
-                setfile(null);
-                return;
-            }
         }
+        if (!checkUploadFilePossible()) {
+            alert("Le nom du fichier attendu est incorrect")
+            setfile(null)
+            return;
+        }
+
 
         const formData = new FormData();
         formData.append(`file`, file); //dans la fonction du back on a juste file
