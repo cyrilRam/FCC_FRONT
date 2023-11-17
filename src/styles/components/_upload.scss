@@ -37,6 +37,7 @@
       border-radius: 20px;
       width: 300px;
       margin-bottom: 30px;
+      cursor: pointer;
 
       p {
         font-style: italic;
@@ -54,15 +55,16 @@
       width: 100px;
       height: 50px;
       font-size: 1.3rem;
-      background-color: $color-bluegrey;
+      background-color: $color-grey-two;
       border: none;
       cursor: pointer;
+      font-weight: bold;
 
       &:hover {
         font-weight: bold;
         font-size: 1.305rem;
         color: whitesmoke;
-        background-color: $color-bluegrey-onclick;
+        background-color: $color-grey-three;
         transition: color 0, 3s ease;
 
       }

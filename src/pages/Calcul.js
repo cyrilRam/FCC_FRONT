@@ -87,10 +87,11 @@ const Calcul = () => {
     };
 
     return (
-        <div className="calcul">
+        <div className="calcul-global">
             <Navigation/>
             <div className="period-calcul">
                 <div className="period">
+
                     <label>Period</label>
                     <select value={selectedDate} onChange={(e) => {
                         setSelectedDate(e.target.value);
@@ -103,11 +104,29 @@ const Calcul = () => {
                     </select>
                     <p>Last Calcul Update : {lastDateCalcul} </p>
                 </div>
-                <button onClick={handleCalcul}>Calcul</button>
+                <button className="button-calcul" onClick={handleCalcul}>Calcul</button>
+                <div className="invoice">
+                    <h3>Invoice Number</h3>
+                    <input type="text"/>
+                </div>
+                <div className="download">
+                    <div className="button-container">
+                        <img src="./assets/excel-logo-0.png"/>
+                        <button onClick={generateExcel}> Download Moyennes</button>
+                    </div>
+                    <div className="button-container">
+                        <img src="./assets/excel-logo-0.png"/>
+                        <button onClick={generateExcel}> Download Details BNP</button>
+                    </div>
+                    <div className="button-container">
+                        <img src="./assets/pdf.png"/>
+                        <button onClick={generateExcel}> Download Invoinces</button>
+                    </div>
+
+                </div>
             </div>
-            <div className="download">
-                <button onClick={generateExcel}> Charger Excel</button>
-            </div>
+
+
         </div>
     );
 };

@@ -7,8 +7,10 @@ const Student = () => {
     return (
         <div className="stat-table">
             <Navigation/>
-            <NavStaticTable/>
-            <Table table={"student"}/>
+            <div className="stat-table-body">
+                <NavStaticTable/>
+                <Table table={"student"}/>
+            </div>
         </div>
     );
 };

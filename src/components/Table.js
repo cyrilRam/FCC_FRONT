@@ -19,28 +19,34 @@ const Table = ({table}) => {
 
     const postNewData = async () => {
         if (modifyData) {
-            console.log(data)
-            try {
-                // Effectuez la requête POST
-                const response = await axios.post(
-                    `http://localhost:8000/api/updateTable`,
-                    data,
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    }
-                );
+            const userConfirmed = window.confirm("Êtes-vous sûr de vouloir effectuer les modifications ?");
+            if (userConfirmed) {
+                try {
+                    // Effectuez la requête POST
+                    const response = await axios.post(
+                        `http://localhost:8000/api/updateTable`,
+                        data,
+                        {
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        }
+                    );
 
-                // Gérez la réponse de l'API ici
-                alert("Réponse de l'API :" + response.data);
-                getData()
-            } catch (error) {
-                console.error("Erreur lors de l'envoi du fichier :", error);
-                const errorDetails = error.response.data.detail;
-                console.log(errorDetails);
-                alert("Erreur : " + errorDetails);
+                    // Gérez la réponse de l'API ici
+                    alert("Réponse de l'API :" + response.data);
+                    getData()
+                } catch (error) {
+                    console.error("Erreur lors de l'envoi du fichier :", error);
+                    const errorDetails = error.response.data.detail;
+                    console.log(errorDetails);
+                    alert("Erreur : " + errorDetails);
+                }
+            } else {
+                window.location.reload();
             }
+
+
         } else {
             alert("Acune Modification n'a été effectuée");
         }
@@ -88,37 +94,42 @@ const Table = ({table}) => {
 
     const columns = data[0] ? Object.keys(data[0]) : [];
     return (
-        <div>
-            <h1>Table {table}</h1>
-            <button onClick={postNewData}>Save</button>
-            <button onClick={handleAdd}>Add Row</button>
-            {columns.length > 0 && (
-                <table>
-                    <thead>
-                    <tr>
-                        {columns
-                            .filter((column) => column !== 'id')
-                            .map((column, index) => (
-                                <th key={index}>{column}</th>
-                            ))}
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {data.map((row, rowIndex) => (
-                        <tr key={rowIndex}>{Object.keys(row).map((column, colIndex) => (column !== "id" && (
-                            <td key={colIndex}><input type="text" value={row[column]}
-                                                      onChange={(e) => handleEdit(rowIndex, column, e.target.value)}/>
-                            </td>)))}
-                            <td>
-                                <button onClick={() => handleDelete(rowIndex)}>Supprimer</button>
-                            </td>
-                        </tr>))}
-                    </tbody>
+        <div className="table">
+            <div className="table-container">
+                <h1>Table {table}</h1>
+                {columns.length > 0 && (
+                    <table>
+                        <thead>
+                        <tr>
+                            {columns
+                                .filter((column) => column !== 'id')
+                                .map((column, index) => (
+                                    <th key={index}>{column}</th>
+                                ))}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {data.map((row, rowIndex) => (
+                            <tr key={rowIndex}>{Object.keys(row).map((column, colIndex) => (column !== "id" && (
+                                <td key={colIndex}><input type="text" value={row[column]}
+                                                          onChange={(e) => handleEdit(rowIndex, column, e.target.value)}/>
+                                </td>)))}
+                                <td>
+                                    {/*<button onClick={() => handleDelete(rowIndex)}>Supprimer</button>*/}
+                                    <img src="/assets/checked.png" onClick={() => handleDelete(rowIndex)}/>
+                                </td>
+                            </tr>))}
+                        </tbody>
 
-                </table>
+                    </table>
 
-            )}
+                )}
+            </div>
+            <div className="button-container">
+                {/*<button onClick={postNewData}>Save</button>*/}
+                <img src="/assets/save.png" onClick={postNewData}/>
+                <button onClick={handleAdd}>+ Add Row</button>
+            </div>
         </div>
     );
 };

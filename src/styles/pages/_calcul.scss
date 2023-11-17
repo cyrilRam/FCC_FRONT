@@ -1,0 +1,137 @@
+.calcul-global {
+
+  .period-calcul {
+    margin: 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+
+    label, h3 {
+      margin: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 20px;
+      background-color: $color-grey-one;
+      border-radius: 5px;
+    }
+
+    .period {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 3px solid $color-grey-two;
+      border-radius: 20px;
+      padding: 15px;
+
+
+      select {
+        width: 120px;
+        height: 50px;
+        background-color: rgba(70, 69, 69, 0.97);
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+
+        &:hover {
+          background-color: #555;
+        }
+
+        option {
+          background-color: #333; /* Couleur de fond sombre par défaut */
+          color: #fff; /* Couleur du texte */
+          cursor: pointer;
+
+        }
+      }
+
+
+      p {
+        font-size: 1rem;
+        color: $color-grey-two;
+        font-weight: bold;
+      }
+    }
+
+    .button-calcul {
+      background-color: #1452a2;
+      width: 200px;
+      height: 100px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: whitesmoke;
+      cursor: pointer;
+
+      &:hover {
+        color: wheat;
+        font-size: 1.8rem;
+        transition: color 0, 3s ease;
+
+      }
+    }
+
+    .invoice {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 3px solid $color-grey-two;
+      border-radius: 20px;
+      padding: 20px;
+
+      input {
+        margin-top: 5px;
+        font-size: 1rem;
+        border-radius: 4px;
+        border: 0.5px solid $color-grey-two;
+      }
+    }
+
+    .download {
+      display: flex;
+      flex-direction: column;
+      border: 3px solid $color-grey-two;
+      border-radius: 20px;
+      padding: 20px;
+
+      .button-container {
+        display: flex;
+        margin: 10px;
+
+        img {
+          width: 50px;
+          height: 50px;
+          margin-right: 3px;
+        }
+
+        button {
+          background-color: $color-grey-two;
+          border-radius: 10px;
+          font-weight: bold;
+          font-size: 1.1rem;
+          text-align: center;
+          border: none;
+          cursor: pointer;
+          color: whitesmoke;
+
+          &:hover {
+            color: wheat;
+            font-size: 1.105rem;
+            transition: color 0, 3s ease;
+            background-color: $color-grey-three;
+
+          }
+        }
+      }
+
+
+    }
+
+  }
+
+
+}

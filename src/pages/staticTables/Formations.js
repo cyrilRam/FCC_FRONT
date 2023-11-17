@@ -7,9 +7,11 @@ const Formations = () => {
     return (
         <div className="stat-table">
             <Navigation/>
-            <NavStaticTable/>
-            <Table table={"formation"}/>
-
+            <div className="stat-table-body">
+                <NavStaticTable/>
+                <Table table={"formation"}/>
+            </div>
+         
         </div>
     );
 };

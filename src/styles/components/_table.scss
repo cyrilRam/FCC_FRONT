@@ -1,0 +1,63 @@
+.table {
+  display: flex;
+  align-items: baseline;
+
+  .table-container {
+    h1 {
+      text-align: center;
+    }
+
+    table {
+
+      tr {
+        font-size: 1.3rem;
+      }
+
+      input {
+        font-size: 1.1rem;
+        margin: 5px;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #eae5e2;
+
+        &:focus {
+          font-weight: bold;
+          background-color: #f8f6f6;
+        }
+      }
+
+      img {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+      }
+
+    }
+
+  }
+
+  .button-container {
+    display: flex;
+
+    img {
+      margin-right: 80px;
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: $color-grey-two;
+      color: $color-white-one;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.3rem;
+
+    }
+
+  }
+}

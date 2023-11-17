@@ -10,7 +10,7 @@ const Navigation = () => {
                 <div className="connect-info">
                     <div className="disconnect">
                         <h4>disconnect</h4>
-                        <AiOutlineUser size={"1.2em"} color="black"/>
+                        <AiOutlineUser size={"1.2em"} color="white"/>
                     </div>
                     <h4>UserID</h4>
                 </div>

@@ -1,0 +1,49 @@
+.navigation-static-table {
+  margin-right: 100px;
+
+  .nav-container {
+    display: flex;
+    background-color: $color-grey-three;
+    margin: 20px;
+    border-radius: 10px;
+
+
+    ul {
+      display: flex;
+      list-style: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+
+
+      a {
+        text-decoration: none;
+
+        li {
+
+          transition: 0.2s;
+          cursor: pointer;
+          color: $color-white-one;
+          font-weight: bold;
+          cursor: pointer;
+          margin: 15px;
+
+
+          &:hover {
+            color: #BFB4B4;
+            transition: color 0, 3s ease;
+          }
+        }
+      }
+
+      .nav-active {
+        position: relative;
+        background-color: $color-grey-two;
+        border-radius: 10px;
+        color: whitesmoke;
+      }
+    }
+  }
+
+}
+
