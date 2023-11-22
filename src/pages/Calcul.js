@@ -86,6 +86,32 @@ const Calcul = () => {
 
     };
 
+    const generatepdf = async () => {
+        if (lastDateCalcul) {
+            await axios({
+                url: `http://localhost:8000/api/uploadPDFMoyennes/${selectedDate}`,
+                method: 'GET',
+                responseType: 'blob',
+            })
+                .then(response => {
+                    // Créer un lien pour télécharger le fichier Excel
+                    const url = window.URL.createObjectURL(new Blob([response.data]));
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'resultats_etudiants.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+
+                })
+                .catch(error => console.error('Erreur lors de la récupération du fichier Excel :', error));
+
+        } else {
+            alert("Veuillez lancer les calcules sur la periode " + selectedDate)
+        }
+
+    };
+
     return (
         <div className="calcul-global">
             <Navigation/>
@@ -120,7 +146,7 @@ const Calcul = () => {
                     </div>
                     <div className="button-container">
                         <img src="./assets/pdf.png"/>
-                        <button onClick={generateExcel}> Download Invoinces</button>
+                        <button onClick={generatepdf}> Download Invoinces</button>
                     </div>
 
                 </div>
